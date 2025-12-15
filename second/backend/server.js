@@ -1,0 +1,38 @@
+import express from 'express'
+
+const app = express()
+
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+});
+
+app.get('/prajwal', (req, res) => {
+    res.send("prajwal is gay")
+})
+
+app.get('/api/jokes', (req, res) =>{
+    const jokes = [
+        {
+            id : 1,
+            title : 'joke 1',
+            content : 'this is a joke'
+        },
+        {
+            id : 2,
+            title : 'joke 2',
+            content : 'this is another joke'
+        },
+        {
+            id : 3,
+            title : 'joke 3',
+            content : 'this is yet another joke'
+        }
+    ];
+    res.send(jokes);
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
